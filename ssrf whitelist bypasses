@@ -1,0 +1,94 @@
+Basic @ symbol bypasses
+https://expected.com@evil.com
+https://expected.com:80@evil.com
+https://expected.com:443@evil.com
+https://expected.com#@evil.com
+https://expected.com?@evil.com
+https://expected.com@@evil.com
+
+URL fragment bypasses
+https://expected.com#@evil.com
+https://expected.com/#@evil.com
+https://expected.com/?#@evil.com
+
+Subdomain tricks
+evil.com@expected.com
+expected.com@evil.com
+expected.com@evil.com@expected.com
+expected.com%40evil.com
+
+Case variation bypasses
+https://Expected.com@evil.com
+https://EXPECTED.com@evil.com
+https://eXpEcTeD.com@evil.com
+
+Dot bypasses
+https://expected.com.@evil.com
+https://expected.com..@evil.com
+https://.expected.com@evil.com
+
+Special character insertion
+https://expected.com%2f@evil.com
+https://expected.com%2f%2f@evil.com
+https://expected.com%00@evil.com
+https://expected.com%0d%0a@evil.com
+
+DNS rebinding services
+expected.com.127.0.0.1.nip.io
+expected.com.0.0.0.0.nip.io
+expected$evil.com
+evil$expected.com
+
+URL encoding variations
+https://expected.com%2e%2e%2fevil.com
+https://expected.com%252e%252e%252fevil.com
+https://%65xpected.com@evil.com
+
+Authentication bypass format
+https://user:pass@expected.com@evil.com
+https://expected.com@evil.com:80@expected.com
+
+Port confusion
+https://expected.com:80@evil.com:443
+https://expected.com:@evil.com
+https://expected.com:00000000000000000000080@evil.com
+
+Path confusion
+https://expected.com@evil.com/
+https://expected.com@evil.com/expected.com
+https://expected.com@evil.com?expected.com
+
+Unicode/normalization
+https://expected．com@evil.com  # Fullwidth dot
+https://expected℡com@evil.com  # Telephone symbol
+https://expectedⓒom@evil.com  # Circled c
+
+HTML entities (if rendered)
+https://expected&period;com@evil.com
+https://expected&x2e;com@evil.com
+
+Wildcard bypass attempts
+https://*.expected.com.evil.com
+https://expected.com.evil.com
+https://expected-com.evil.com
+https://expected.com- evil.com
+
+Redirect chains
+https://expected.com/redirect?url=evil.com
+https://expected.com/forward?target=evil.com
+https://expected.com/out?link=evil.com
+
+Protocol confusion
+http://expected.com@https://evil.com
+https://expected.com@http://evil.com
+ftp://expected.com@evil.com
+
+Localhost through whitelist
+https://expected.com@127.0.0.1
+https://expected.com@localhost
+https://expected.com@0.0.0.0
+
+Combined techniques
+https://Expected.com:80%40evil.com
+https://expected.com%2f%2f%40evil.com
+https://expected.com@127.0.0.1#@evil.com
